@@ -1,0 +1,36 @@
+[project]
+name = "aivoa-backend"
+version = "0.1.0"
+description = "Aivoa – AI-powered customer complaint management (FastAPI + LangGraph + Groq)"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "sqlalchemy",
+    "alembic",
+    "pymysql",
+    "cryptography",
+    "psycopg[binary]",
+    "pydantic-settings",
+    "langgraph",
+    "langchain-groq",
+    "python-multipart",
+    "pypdf",
+    "python-docx",
+]
+
+[dependency-groups]
+dev = ["ruff", "pytest", "httpx"]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["app"]
